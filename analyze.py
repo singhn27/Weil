@@ -11,7 +11,7 @@ from tests     import primesfrom2to
 
 
 def factorization_over_cyclotomic(V):
-    n = V.degree()
+    n = V.degree
     p = V.characteristic
     z_fn = zeta_function(V)
     V.print_V()
@@ -56,8 +56,8 @@ def factorization_over_cyclotomic(V):
 
 def go():
     complex_points = []
-    for p in primesfrom2to(10):
-        V = ProjectiveVariety(Integer(p), DefiningEquation([1,1,1,1], [4,4,4,4]))
+    for p in primesfrom2to(167):
+        V = ProjectiveVariety(Integer(p), DefiningEquation([1,1], [3,1]))
         complex_points += factorization_over_cyclotomic(V)
         print "\n\n\n"
     pts = [r for r,m,p in complex_points]
