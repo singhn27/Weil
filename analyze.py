@@ -12,7 +12,6 @@ https://www.github.com/singhn27/REU2018
 
 from sage.all  import *
 from variety   import *
-from tests     import primesfrom2to
 
 # Functions #
 
@@ -63,7 +62,7 @@ def factorization_over_cyclotomic(V):
 
 def go():
     complex_points = []
-    for p in primesfrom2to(167):
+    for p in primesfrom2to(7):
         V = ProjectiveVariety(Integer(p), DefiningEquation([1,1], [3,1]))
         complex_points += factorization_over_cyclotomic(V)
         print "\n\n\n"

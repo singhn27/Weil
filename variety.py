@@ -10,11 +10,13 @@ Navtej Singh <singhnav@umich.edu>
 
 # Imports #
 
+import numpy as np
+
 from abc                             import ABCMeta, abstractmethod
 from copy                            import deepcopy
 from sage.all                        import *
-from rational_function               import *
-from supersingular                   import *
+from utils.rational_function         import *
+from utils.supersingular             import *
 from utils.characters                import *
 from utils.bin_lists                 import *
 from utils.affine_patch_calculations import *
@@ -382,6 +384,20 @@ class ProjectiveVariety(ConcreteVariety):
             return N
 
 # Functions #
+
+def primesfrom2to(n):
+    '''
+    https://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
+    Input n>=6, Returns a array of primes, 2 <= p < n
+    '''
+    sieve = np.ones(n/3 + (n%6==2), dtype=np.bool)
+    sieve[0] = False
+    for i in xrange(int(n**0.5) / 3 + 1):
+        if sieve[i]:
+            k=3*i+1|1
+            sieve[((k*k)/3)::2*k] = False
+            sieve[(k*k+4*k-2*k*(i&1))/3::2*k] = False
+    return [Integer(prime) for prime in list(np.r_[2,3,((3*np.nonzero(sieve)[0]+1)|1)])]
 
 def get_solutions(V, m):
     q = V.order
