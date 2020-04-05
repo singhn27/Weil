@@ -63,8 +63,8 @@ def factorization_over_cyclotomic(V):
 
 def go():
     complex_points = []
-    for p in primesfrom2to(7):
-        V = ProjectiveVariety(Integer(p), DefiningEquation([1,1], [3,1]))
+    for p in primesfrom2to(13):
+        V = ProjectiveVariety(Integer(p), DefiningEquation([1,1,1,1], [4,4,4,4]))
         complex_points += factorization_over_cyclotomic(V)
         print "\n\n\n"
     pts = [r for r,m,p in complex_points]
