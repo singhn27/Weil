@@ -1,6 +1,13 @@
 #!/usr/bin/env sage -python
 # -*- coding: utf-8 -*-
 
+'''
+Navtej Singh
+MATH 575 UMich Ann Arbor
+Adapted Freely from my other project 
+https://www.github.com/singhn27/REU2018
+'''
+
 # Imports #
 
 from sage.all  import *
